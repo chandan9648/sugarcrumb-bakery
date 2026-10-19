@@ -1,3 +1,97 @@
+
 @import "tailwindcss";
-:root{--cream:#fbf6ef;--ink:#34241f;--muted:#76665c;--peach:#e9bda6;--line:#e8dcd0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}::selection{background:#e9bda6;color:#34241f}.serif{font-family:Georgia,'Times New Roman',serif}.grain{background-image:radial-gradient(#7c5b48 0.45px,transparent .45px);background-size:7px 7px}.photo{background-size:cover;background-position:center}.soft-shadow{box-shadow:0 22px 70px rgba(73,46,32,.10)}
+
+/* Sugar & Crumb — Design Tokens */
+:root {
+  --cream: #fbf6ef;
+  --ink: #34241f;
+  --muted: #76665c;
+  --peach: #e9bda6;
+  --line: #e8dcd0;
+
+  color-scheme: light;
+}
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Text Selection */
+::selection {
+  background: var(--peach);
+  color: var(--ink);
+}
+
+/* Typography */
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Background Textures */
+.grain {
+  background-image: radial-gradient(
+    #7c5b48 0.45px,
+    transparent 0.45px
+  );
+  background-size: 7px 7px;
+}
+
+/* Images */
+.photo {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Shadows */
+.soft-shadow {
+  box-shadow: 0 22px 70px rgba(73, 46, 32, 0.1);
+}
+
+/* Accessible Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
